@@ -1,7 +1,11 @@
 import React from "react";
 import CustomButton from "./CustomButton";
+import {useTip} from "../utils/StoreProvider";
 
-const SelectTip = ({tip,setTip}) => {
+const SelectTip = () => {
+    console.log('Hello World');
+    const {tip,setTip} = useTip();
+
     const handleChange = e => {
         const value = parseFloat(e.target.value);
         setTip(value);

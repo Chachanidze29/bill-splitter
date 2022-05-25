@@ -1,7 +1,9 @@
 import React from "react";
 import FormInput from "./FormInput";
+import {usePeople} from "../utils/StoreProvider";
 
-const PeopleInput = ({numOfPeople,setNumOfPeople}) => {
+const PeopleInput = () => {
+    const {numOfPeople,setNumOfPeople} = usePeople();
 
     const handleChange = e => {
         const value = parseFloat(e.target.value);

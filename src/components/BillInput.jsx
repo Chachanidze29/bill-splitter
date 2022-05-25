@@ -1,7 +1,10 @@
 import React from "react";
 import FormInput from "./FormInput";
+import {useBill} from "../utils/StoreProvider";
 
-const BillInput = ({bill,setBill})=> {
+const BillInput = ()=> {
+    const {bill,setBill} = useBill();
+
     const handleChange = e => {
         const value = parseFloat(e.target.value);
         setBill(value);
