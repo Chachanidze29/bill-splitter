@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import FormInput from "./FormInput";
-import {usePeople} from "../utils/StoreProvider";
+import {useError, usePeople} from "../utils/StoreProvider";
 
 const PeopleInput = () => {
     const {numOfPeople,setNumOfPeople} = usePeople();
-    const [error,setError] = useState(null);
+    const {error,setError} = useError();
 
     const handleChange = e => {
         const value = parseFloat(e.target.value);

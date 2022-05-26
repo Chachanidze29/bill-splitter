@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import CustomButton from "./CustomButton";
-import {useTip} from "../utils/StoreProvider";
+import {useSelected, useTip} from "../utils/StoreProvider";
 import FormInput from "./FormInput";
 
 const buttons = [0.05,0.1,0.25,0.5];
 
 const SelectTip = () => {
     const {tip,setTip} = useTip();
-    const [selectedIndex,setSelectedIndex] = useState(0);
+    const {selectedIndex,setSelectedIndex} = useSelected();
 
     const handleChange = e => {
         const value = parseFloat(e.target.value);

@@ -1,16 +1,29 @@
 import React from "react";
 import CustomButton from "./CustomButton";
-import {billInitial, peopleInitial, tipInitial, useBill, usePeople, useTip} from "../utils/StoreProvider";
+import {
+    billInitial, errorInitial,
+    peopleInitial, selectedInitial,
+    tipInitial,
+    useBill,
+    useError,
+    usePeople,
+    useSelected,
+    useTip
+} from "../utils/StoreProvider";
 
 const Result = () => {
     const {bill,setBill} = useBill();
     const {tip,setTip} = useTip();
     const {numOfPeople,setNumOfPeople} = usePeople();
+    const {setError} = useError();
+    const {setSelectedIndex} = useSelected();
 
     const resetHandler = ()=> {
         setBill(billInitial);
         setTip(tipInitial);
         setNumOfPeople(peopleInitial);
+        setError(errorInitial);
+        setSelectedIndex(selectedInitial);
     }
 
     const calculate = ()=> {
