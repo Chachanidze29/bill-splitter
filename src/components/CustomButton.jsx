@@ -1,7 +1,12 @@
 import React from "react";
 
-const CustomButton = ({clickHandler,children})=> (
-    <button className='flex-button bg-second border-2 font-bold uppercase rounded text-first pl-4 pr-4 pt-2 pb-2 hover:bg-first hover:border-second hover:text-second' onClick={clickHandler}>{children}</button>
-)
+const CustomButton = ({className,isSelected,disabled,clickHandler,children})=> {
+    const selectCondition = isSelected ? 'bg-second text-first' : 'bg-first text-second';
+    const disableCondition = disabled ? 'bg-disabled hover:bg-disabled text-first hover:cursor-auto' : 'hover:bg-hover hover:text-first';
+    const buttonClass = `${className} flex-button font-bold uppercase rounded pl-4 pr-4 pt-2 pb-2  ${selectCondition} ${disableCondition}`;
+    return (
+        <button disabled={disabled} className={buttonClass} onClick={clickHandler}>{children}</button>
+    )
+}
 
 export default CustomButton;

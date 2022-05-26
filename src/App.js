@@ -5,9 +5,9 @@ import Result from "./components/Result";
 import './App.css';
 
 const App = () => (
-    <div className='flex flex-col w-1/2'>
+    <div className='flex flex-col mobile:w-1/2 mobile:h-1/2 w-full h-full '>
         <h1 className='font-bold text-xl tracking-widest text-center text-first uppercase'>Splitter</h1>
-        <div className='w-full flex flex-row justify-around bg-white p-5 rounded-xl mt-10 mb-0 mr-auto ml-auto'>
+        <div className='w-full flex flex-col mobile:flex-row justify-around bg-white p-5 rounded-xl mt-10 mb-0 mr-auto ml-auto'>
             <div className='basis-2/5 flex flex-col'>
                 <BillInput/>
                 <SelectTip/>

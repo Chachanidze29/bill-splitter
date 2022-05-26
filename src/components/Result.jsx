@@ -33,7 +33,7 @@ const Result = () => {
                     <h1 className='text-second text-4xl font-bold'>{isNaN(tipAmount) ? '$0' : '$' + tipAmount}</h1>
                 </div>
             </div>
-            <CustomButton clickHandler={resetHandler}>Reset</CustomButton>
+            <CustomButton isSelected={true} disabled={bill===billInitial && tip === tipInitial && numOfPeople === peopleInitial} clickHandler={resetHandler}>Reset</CustomButton>
         </div>
     )
 }

@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import CustomButton from "./CustomButton";
 import {useTip} from "../utils/StoreProvider";
+import FormInput from "./FormInput";
+
+const buttons = [0.05,0.1,0.25,0.5];
 
 const SelectTip = () => {
-    console.log('Hello World');
     const {tip,setTip} = useTip();
+    const [selectedIndex,setSelectedIndex] = useState(0);
 
     const handleChange = e => {
         const value = parseFloat(e.target.value);
@@ -14,13 +17,14 @@ const SelectTip = () => {
     return (
         <div>
             <p>Tip:</p>
-            <div className='flex flex-wrap justify-between'>
-                <CustomButton clickHandler={()=>setTip(0.05)}>5%</CustomButton>
-                <CustomButton clickHandler={()=>setTip(0.1)}>10%</CustomButton>
-                <CustomButton clickHandler={()=>setTip(0.15)}>15%</CustomButton>
-                <CustomButton clickHandler={()=>setTip(0.25)}>25%</CustomButton>
-                <CustomButton clickHandler={()=>setTip(0.5)}>50%</CustomButton>
-                <input className='text-first font-bold w-1/3 m-0 outline-0 p-2 bg-third' placeholder='Custom' type='number' name='tip' value={isNaN(tip) || tip === 0 ? '' : tip} onChange={handleChange} />
+            <div className='flex flex-wrap justify-between items-center'>
+                {
+                    buttons.map((value,ind) => <CustomButton className='basis-5/12' isSelected={selectedIndex === ind} key={ind} clickHandler={()=>{
+                        setTip(value);
+                        setSelectedIndex(ind);
+                    }}>{value*100}%</CustomButton> )
+                }
+                <FormInput placeholder='Custom' type='number' name='tip' value={isNaN(tip) || tip === 0 ? '' : tip} changeHandler={handleChange} />
             </div>
         </div>
     )
